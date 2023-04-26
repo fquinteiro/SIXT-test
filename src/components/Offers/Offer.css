@@ -1,0 +1,32 @@
+.offer-item {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+}
+
+.offer-image {
+  width: 100%;
+}
+
+.offer-title {
+  margin-bottom: 10px;
+}
+
+.offer-price {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+@media (max-width: 1200px) { 
+  .offer-item {
+    width: 45%;
+  }
+}
+
+@media (max-width: 700px) { 
+  .offer-item {
+    width: 100%;
+  }
+}
+

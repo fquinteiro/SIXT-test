@@ -1,3 +1,5 @@
+import './Pagination.css';
+
 export interface PaginationProps {
   current: number;
   pageSize: number;
@@ -5,11 +7,11 @@ export interface PaginationProps {
   onPageChange: (newPage: number) => void;
 }
 
-const Pagination = ({ current, pageSize, totalItems, onPageChange }: PaginationProps) => {
+export function Pagination({ current, pageSize, totalItems, onPageChange }: PaginationProps) {
   const totalPages = Math.ceil(totalItems / pageSize);
 
   return (
-    <div>
+    <div className='button-container'>
       <button
         onClick={() => onPageChange(current - 1)}
         disabled={current === 1}
@@ -24,6 +26,4 @@ const Pagination = ({ current, pageSize, totalItems, onPageChange }: PaginationP
       </button>
     </div>
   );
-};
-
-export default Pagination;
+}

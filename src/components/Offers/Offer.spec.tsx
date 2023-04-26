@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 import { Offer } from './Offer';
-import { IOffer } from './Types/offers';
+import { IOffer } from './types/offers';
 
 describe('Offers', () => {
-  const offer: IOffer = {
+  const offerMock: IOffer = {
     id: '123',
     headlines: {
       description: 'Test offer',
@@ -23,21 +23,21 @@ describe('Offers', () => {
   };
 
   test('renders offer description', () => {
-    const { getByText } = render(<Offer offer={offer} />);
-    const descriptionElement = getByText(offer.headlines.description);
+    const { getByText } = render(<Offer offer={offerMock} />);
+    const descriptionElement = getByText(offerMock.headlines.description);
     expect(descriptionElement).toBeInTheDocument();
   });
 
   test('renders offer image', () => {
-    const { getByAltText } = render(<Offer offer={offer} />);
-    const imageElement = getByAltText(offer.headlines.description);
+    const { getByAltText } = render(<Offer offer={offerMock} />);
+    const imageElement = getByAltText(offerMock.headlines.description);
     expect(imageElement).toBeInTheDocument();
-    expect(imageElement).toHaveAttribute('src', offer.splashImages[0].narrowMedium);
+    expect(imageElement).toHaveAttribute('src', offerMock.splashImages[0].narrowMedium);
   });
 
   test('renders offer price', () => {
-    const { getByText } = render(<Offer offer={offer} />);
-    const priceElement = getByText(`Price: ${offer.prices.totalPrice.amount.display}`);
+    const { getByText } = render(<Offer offer={offerMock} />);
+    const priceElement = getByText(`Price: ${offerMock.prices.totalPrice.amount.display}`);
     expect(priceElement).toBeInTheDocument();
   });
 });

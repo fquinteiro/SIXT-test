@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Pagination from '../Pagination/Pagination';
-import { IOffer, IOfferResponse } from './Types/offers';
+import { IOffer, IOfferResponse } from './types/offers';
+import { Pagination } from '../Pagination/Pagination';
 import { Offer } from './Offer';
+import './OfferList.css';
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 9;
 
 export function OffersList() {
   const [offers, setOffers] = useState<IOffer[]>([]);
@@ -21,11 +22,7 @@ export function OffersList() {
         );
         setOffers(offers);
       } catch (error) {
-        if (typeof error === "string") {
-          setError(error)
-        } else if (error instanceof Error) {
-          setError(error.message)
-        }
+        setError(error.message)
       }
     }
     getOffers();
@@ -45,24 +42,26 @@ export function OffersList() {
     }
 
     return (
-      <ul>
-        {paginatedOffers.map((offer) => (
-          <Offer offer={offer} />
-        ))}
+      <>
+        <ul className='offer-list'>
+          {paginatedOffers.map((offer) => (
+            <Offer offer={offer} />
+          ))}
+        </ul>
         <Pagination
           current={page}
           pageSize={PAGE_SIZE}
           totalItems={offers.length}
           onPageChange={setPage}
         />
-      </ul>
+      </>
     );
   };
 
   return (
-    <div>
-      <h1>Offers</h1>
+    <>
+      <h1 className='offer-title'>Offers</h1>
       {renderOffer()}
-    </div>
+    </>
   );
 }
