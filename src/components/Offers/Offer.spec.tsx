@@ -32,7 +32,7 @@ describe('Offers', () => {
     const { getByAltText } = render(<Offer offer={offerMock} />);
     const imageElement = getByAltText(offerMock.headlines.description);
     expect(imageElement).toBeInTheDocument();
-    expect(imageElement).toHaveAttribute('src', offerMock.splashImages[0].narrowMedium);
+    if (offerMock.splashImages) expect(imageElement).toHaveAttribute('src', offerMock.splashImages[0].narrowMedium);
   });
 
   test('renders offer price', () => {

@@ -22,6 +22,7 @@ export function OffersList() {
         );
         setOffers(offers);
       } catch (error) {
+        // @ts-expect-error error type
         setError(error.message)
       }
     }
