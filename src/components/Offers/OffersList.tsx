@@ -43,7 +43,7 @@ export function OffersList() {
 
     return (
       <>
-        <ul className='offer-list'>
+        <ul className='offers-list'>
           {paginatedOffers.map((offer) => (
             <Offer offer={offer} />
           ))}
@@ -60,7 +60,7 @@ export function OffersList() {
 
   return (
     <>
-      <h1 className='offer-title'>Offers</h1>
+      <h1 className='offers-title'>Offers</h1>
       {renderOffer()}
     </>
   );

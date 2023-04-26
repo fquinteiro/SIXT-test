@@ -1,9 +1,9 @@
-.offer-title {
+.offers-title {
   text-align: center;
   margin: 40px 0;
 }
 
-.offer-list {
+.offers-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
