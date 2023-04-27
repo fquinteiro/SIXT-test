@@ -15,8 +15,4 @@ interface IOffer {
   };
 }
 
-interface IOfferResponse {
-  offers: IOffer[];
-}
-
-export type { IOffer, IOfferResponse }
+export type { IOffer };
